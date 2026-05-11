@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: dish-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/canteen_dish?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+logging:
+  level:
+    com.canteen: DEBUG
