@@ -1,0 +1,8 @@
+com\canteen\common\response\Result.class
+com\canteen\common\config\CommonAutoConfiguration.class
+com\canteen\common\exception\GlobalExceptionHandler.class
+com\canteen\common\auth\Role.class
+com\canteen\common\auth\UserContext.class
+com\canteen\common\exception\BusinessException.class
+com\canteen\common\response\ResultCode.class
+com\canteen\common\auth\JwtUtils.class
