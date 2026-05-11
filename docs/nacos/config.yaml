@@ -1,0 +1,55 @@
+# Nacos Configuration Templates for Smart Canteen
+
+# ============================================
+# Data ID: user-service.yaml  Group: DEFAULT_GROUP
+# ============================================
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/canteen_user?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+# ============================================
+# Data ID: dish-service.yaml  Group: DEFAULT_GROUP
+# ============================================
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/canteen_dish?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+# ============================================
+# Data ID: order-service.yaml  Group: DEFAULT_GROUP
+# ============================================
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/canteen_order?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+order:
+  timeout:
+    pay-minutes: 15
+    accept-minutes: 10
+
+# ============================================
+# Data ID: queue-service.yaml  Group: DEFAULT_GROUP
+# ============================================
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/canteen_queue?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+queue:
+  repeat-call-interval-seconds: 30
+
+# ============================================
+# Data ID: gateway-service.yaml  Group: DEFAULT_GROUP
+# ============================================
+rate-limit:
+  login-per-minute: 10
+  sms-per-minute: 1
+  default-per-second: 100
