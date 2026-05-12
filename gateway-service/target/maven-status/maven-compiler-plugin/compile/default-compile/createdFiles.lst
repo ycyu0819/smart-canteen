@@ -1,0 +1,4 @@
+com\canteen\gateway\filter\JwtAuthGatewayFilter.class
+com\canteen\gateway\util\JwtUtils.class
+com\canteen\gateway\config\CorsConfig.class
+com\canteen\gateway\GatewayServiceApplication.class

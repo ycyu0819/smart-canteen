@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        # Auth routes (no JWT)
+        - id: user-auth
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/register/**,/api/user/login/**,/api/user/sms/**,/api/user/token/**
+        # User secured routes
+        - id: user-secured
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+        # Dish routes
+        - id: dish-service
+          uri: lb://dish-service
+          predicates:
+            - Path=/api/dish/**,/api/category/**
+        # Order routes
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order/**
+        # Queue screen (no JWT, uses screen_token)
+        - id: queue-screen
+          uri: lb://queue-service
+          predicates:
+            - Path=/api/queue/screen/**
+        # Queue secured
+        - id: queue-secured
+          uri: lb://queue-service
+          predicates:
+            - Path=/api/queue/**
+        # Admin routes
+        - id: admin
+          uri: lb://user-service
+          predicates:
+            - Path=/api/admin/**
+
+rate-limit:
+  login-per-minute: 10
+  sms-per-minute: 1
+  default-per-second: 100
